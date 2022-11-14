@@ -12,6 +12,7 @@ AutoCorr=zeros(2*n-1,1);
 AutoCorr(n)=sigma2;
 unbia=xcorr(bbg,'unbiased');
 bia=xcorr(bbg,'biased');
+bbgfft=fft(bbg);
 %% Figure
 
 %Representation autocorrélation théorique:
@@ -26,3 +27,7 @@ title("Corrélatioon non-biaisé");
 subplot(3,1,3);
 plot(l,bia);
 title("Corrélatioon biaisé");
+
+figure,
+plot(bbgfft);
+title("Spectre de puissance")
