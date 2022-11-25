@@ -11,12 +11,3 @@ for i=init:pas:len-len_trame
     trame(:,cpt)=s(i:i+len_trame);
     cpt=cpt+1;
 end
-
-% i=1;
-% ind=i-(recouv/100)*len_trame;
-% while ind~=len
-%     %trame(:,cpt)=s(ind:ind+len_trame);
-%     i=i+1;
-%     ind=i-(recouv/100)*len_trame
-%     cpt=cpt+1;
-% end
