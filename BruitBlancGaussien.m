@@ -13,6 +13,7 @@ AutoCorr(n)=sigma2;
 unbia=xcorr(bbg,'unbiased');
 bia=xcorr(bbg,'biased');
 bbgfft=fft(bbg);
+
 %% Figure
 
 %Representation autocorrélation théorique:
