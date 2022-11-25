@@ -13,7 +13,7 @@ AutoCorr(n)=sigma2;
 unbia=xcorr(bbg,'unbiased');
 bia=xcorr(bbg,'biased');
 bbgfft=real(fftshift(fft(bbg)));
-perio=Mon_Welch(bbg,2048);
+perio=Mon_Welch(bbg',2048);
 
 
 %% Figure
