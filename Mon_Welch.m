@@ -1,6 +1,5 @@
 function y = Mon_Welch(x,NFFT)
 a = [];
-x=x';
 lenx = length(x);
 Nb_fft = floor(lenx/NFFT);
 

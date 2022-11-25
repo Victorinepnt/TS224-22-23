@@ -26,6 +26,7 @@ bbg_fft=real(fftshift(fft(bbg)));
 bbg_dsp=ones(n,1)*sigma2;
 
 %Changer toutes les abscisses
+>>>>>>> ba73c09423c1419d0327acdc12fceb19971d1742
 
 
 %% Figure

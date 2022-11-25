@@ -1,10 +1,10 @@
 function res = traitement_trame(SigBruitFT)
 
-dspestim = Mon_Welch(SigBruitFT,512);
+n = length(SigBruitFT);
 
-Sigrehausse = SigBruitFT - dspestim;
+dspestim = Mon_Welch(SigBruitFT',512);  %problème de taille pour la soustraction !!
 
-n = length(Sigrehausse);
+Sigrehausse = SigBruitFT - dspestim';
 
 for i=1:n
     if(Sigrehausse(i)<0)
