@@ -15,6 +15,7 @@ bia=xcorr(bbg,'biased');
 bbgfft=real(fftshift(fft(bbg)));
 perio=Mon_Welch(bbg,512);
 
+
 %% Figure
 
 %Representation autocorrélation théorique:
