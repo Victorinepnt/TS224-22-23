@@ -27,6 +27,7 @@ bbg_dsp=ones(n,1)*sigma2;
 
 %Changer toutes les abscisses
 
+
 %% Figure
 
 %Representation autocorrélation théorique:
