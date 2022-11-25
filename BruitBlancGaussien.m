@@ -12,7 +12,8 @@ AutoCorr=zeros(2*n-1,1);
 AutoCorr(n)=sigma2;
 unbia=xcorr(bbg,'unbiased');
 bia=xcorr(bbg,'biased');
-bbgfft=fft(bbg);
+bbgfft=real(fftshift(fft(bbg)));
+perio=Mon_Welch(bbg,512);
 
 %% Figure
 
@@ -31,4 +32,8 @@ title("Corrélatioon biaisé");
 
 figure,
 plot(bbgfft);
-title("Spectre de puissance")
+title("Spectre de puissance");
+
+figure,
+plot(perio);
+title("Periodogramme")
