@@ -1,5 +1,5 @@
 function [bbg] = BruitBlancGaussien(n,PuiFil,dB,Ts)
-
+nfft=2048;
 %Création du bruit
 SigmaSym=1;
 
@@ -8,12 +8,24 @@ sigma2=SigmaSym*PuiFil./(2*10.^(dB/10));
 
 bbg=sqrt(sigma2)*randn(n,1);
 l=meshgrid(-n+1:1:n-1,1);
+
+%Calcul des corrélations
 AutoCorr=zeros(2*n-1,1);
 AutoCorr(n)=sigma2;
 unbia=xcorr(bbg,'unbiased');
 bia=xcorr(bbg,'biased');
-bbgfft=real(fftshift(fft(bbg)));
-perio=Mon_Welch(bbg,2048);
+
+%Calcul DSP
+perio=Mon_Welch(bbg,nfft);
+
+%Calcul spectre de puissance
+%A modifier, voir cours de l'an dernier
+bbg_fft=real(fftshift(fft(bbg)));
+
+%Calcul de la DSP théorique
+bbg_dsp=ones(n,1)*sigma2;
+
+%Changer toutes les abscisses
 
 %% Figure
 
@@ -31,9 +43,13 @@ plot(l,bia);
 title("Corrélatioon biaisé");
 
 figure,
-plot(bbgfft);
+plot(bbg_fft);
 title("Spectre de puissance");
+
 
 figure,
 plot(perio);
-title("Periodogramme")
+hold on;
+plot(bbg_dsp(1:nfft));
+title("Periodogramme et densite spectrale de puissance")
+legend("DSP calculé", "DSP théorique")
