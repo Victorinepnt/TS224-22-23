@@ -1,4 +1,4 @@
-function Sigrehausse = traitement_trame(SigBruitFT)
+function res = traitement_trame(SigBruitFT)
 
 dspestim = Mon_Welch(SigBruitFT,512);
 
@@ -12,3 +12,4 @@ for i=1:n
     end
 end
 
+res = 3;
