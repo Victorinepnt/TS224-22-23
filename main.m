@@ -5,6 +5,11 @@ clc,
 sig=load("fcno03fz.mat");
 s1 = -sig.fcno03fz;
 n=length(s1);
+
+dec=decomp(s1,100,50);
+t1=dec(:,1);
+t2=dec(:,2);
+
 [bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
 %% Ajout du bruit en fonction du RSB final 
