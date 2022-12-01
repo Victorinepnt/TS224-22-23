@@ -10,7 +10,7 @@ for i=1:Nb_fft
     a = vertcat(a,Smoy);             %on conserve les segments
 end
 
-y = mean(a)/NFFT;
+y = a/NFFT;
 y = fftshift(y);
 %%res = smooth(y);                  %lissage DSP
 end

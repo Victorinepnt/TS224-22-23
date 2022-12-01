@@ -26,8 +26,6 @@ bbg_fft=real(fftshift(fft(bbg)));
 bbg_dsp=ones(n,1)*sigma2;
 
 %Changer toutes les abscisses
->>>>>>> ba73c09423c1419d0327acdc12fceb19971d1742
-
 
 %% Figure
 
@@ -52,6 +50,6 @@ title("Spectre de puissance");
 figure,
 plot(perio);
 hold on;
-plot(bbg_dsp(1:nfft));
+plot(bbg_dsp);
 title("Periodogramme et densite spectrale de puissance")
 legend("DSP calculé", "DSP théorique")
