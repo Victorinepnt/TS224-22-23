@@ -9,7 +9,7 @@ n = length(SigBruitFT);
 
 dspestim = ones(n,1)*sigma2;  %problème de taille pour la soustraction !!
 
-Sigrehausse = abs(SigBruitFT) - abs(dspestim);
+Sigrehausse = (abs(SigBruitFT).^2)/n - abs(dspestim);
 
 for i=1:n
     if(Sigrehausse(i)<0)
@@ -21,7 +21,8 @@ figure,
 plot(Sigrehausse);
 title('Sigrehausse');
 
-SigdebruitFT = Sigrehausse; %+ angle(SigBruitFT);
+Sigrehausseft = sqrt(n*Sigrehausse);
+SigdebruitFT = Sigrehausseft.*exp(1j*angle(SigBruitFT));
 
 figure,
 plot(SigdebruitFT);
@@ -31,5 +32,6 @@ Sigdebruit = ifft(SigdebruitFT);
 
 figure,
 plot(Sigdebruit);
+title('Sigdebruit');
 
 res = 3;

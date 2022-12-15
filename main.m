@@ -1,3 +1,4 @@
+%Groupe 14
 clear,
 close all,
 clc,
@@ -13,7 +14,7 @@ fen=fenetre(dec,"hamming");
 
 %t=test();
 
-[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
+%[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
 %% Ajout du bruit en fonction du RSB final 
 
