@@ -7,11 +7,20 @@ s1 = -sig.fcno03fz;
 n=length(s1);
 
 N=64;
-dec=decomp(s1,N,50);
+prct=50;
+dec=decomp(s1,N,prct);
 
-fen=fenetre(dec,"hamming");
+[fen,w]=fenetre(dec,"hamming");
 
-%t=test();
+t=test();
+
+Signal_recouv=AddRecouv(fen,w,prct);
+
+figure,
+plot(s1)
+hold on,
+plot(Signal_recouv),
+title("Tu recouvres ?")
 
 [bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
