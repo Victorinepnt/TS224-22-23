@@ -1,3 +1,4 @@
+%Groupe 14
 clear,
 close all,
 clc,
@@ -23,7 +24,7 @@ figure,
 plot(Signal_recouv),
 title("Tu recouvres ?")
 
-[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
+%[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
 %% Ajout du bruit en fonction du RSB final 
 
