@@ -56,6 +56,7 @@ end
 
 
 Signal_final=AddRecouv(real(res),w,prct);
+Signal_final=[zeros(1,floor(length(dec2(:,1))*(prct/100))) Signal_final];
 figure,
 plot(sigbruite,'r');
 
