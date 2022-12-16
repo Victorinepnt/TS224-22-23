@@ -7,6 +7,7 @@ sig=load("fcno03fz.mat");
 s1 = -sig.fcno03fz;
 n=length(s1);
 
+
 N=64;
 prct=50;
 dec=decomp(s1,N,prct);
@@ -21,9 +22,12 @@ t=test();
 
 %% Ajout du bruit en fonction du RSB final 
 
-RSB = 5;
+RSB = 15;
 
 sigbruite = parolebruitee(s1, RSB);
+figure,
+plot(sigbruite);
+title('Signal bruité');
 
 % RSB = 10;
 % 
@@ -36,12 +40,6 @@ sigbruite = parolebruitee(s1, RSB);
 
 Signal_recouv=AddRecouv(fen,w,prct);
 
-figure,
-plot(s1)
-
-figure,
-plot(Signal_recouv),
-title("Tu recouvres ?")
 
 %% Traitement de trame
 
@@ -57,14 +55,15 @@ for i=1:126
 end
 
 
-Signal_final=AddRecouv(res,w,prct);
-
+Signal_final=AddRecouv(real(res),w,prct);
 figure,
-plot(Signal_final),
-title("Signal final");
+plot(sigbruite,'r');
+
+hold on,
+plot(Signal_final,'b'),
+
 %% Figure
 
-figure,
-plot(s1);
-title("Signal original");
+hold on,
+plot(s1,'g');
 
