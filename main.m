@@ -15,14 +15,7 @@ dec=decomp(s1,N,prct);
 
 t=test();
 
-Signal_recouv=AddRecouv(fen,w,prct);
 
-figure,
-plot(s1)
-
-figure,
-plot(Signal_recouv),
-title("Tu recouvres ?")
 
 %[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
@@ -39,11 +32,36 @@ sigbruite = parolebruitee(s1, RSB);
 % 
 % sigbruite3 = parolebruitee(s1, RSB);
 
+%%Addition-recouvrement
+
+Signal_recouv=AddRecouv(fen,w,prct);
+
+figure,
+plot(s1)
+
+figure,
+plot(Signal_recouv),
+title("Tu recouvres ?")
 
 %% Traitement de trame
 
-res = traitement_trame(sigbruite);
+N=64;
+prct=50;
+dec2=decomp(sigbruite,N,prct);
+[m,k] = size(dec2);
 
+[fenb,wb]=fenetre(dec2,"hamming");   %on se place dans une hypothèse de quasi stationarité
+
+for i=1:126
+    res(:,i) = traitement_trame(fenb(:,i), sigbruite);
+end
+
+
+Signal_final=AddRecouv(res,w,prct);
+
+figure,
+plot(Signal_final),
+title("Signal final");
 %% Figure
 
 figure,

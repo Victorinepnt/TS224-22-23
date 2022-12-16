@@ -1,15 +1,15 @@
-function res = traitement_trame(SigBruit)
+function Sigdebruit = traitement_trame(Trame, SigBruit)
 
 extrait = SigBruit(1:10000);
 
 sigma2 = var(extrait);
 
-SigBruitFT = fft(SigBruit);
+SigBruitFT = fft(Trame);
 n = length(SigBruitFT);
 
 dspestim = ones(n,1)*sigma2;  %problème de taille pour la soustraction !!
 
-Sigrehausse = (abs(SigBruitFT).^2)/n - abs(dspestim);
+Sigrehausse = ((abs(SigBruitFT)).^2)/n - dspestim;
 
 for i=1:n
     if(Sigrehausse(i)<0)
@@ -17,21 +17,10 @@ for i=1:n
     end
 end
 
-figure,
-plot(Sigrehausse);
-title('Sigrehausse');
 
 Sigrehausseft = sqrt(n*Sigrehausse);
 SigdebruitFT = Sigrehausseft.*exp(1j*angle(SigBruitFT));
 
-figure,
-plot(SigdebruitFT);
-title('SigdebruitFT');
 
-Sigdebruit = ifft(SigdebruitFT); 
-
-figure,
-plot(Sigdebruit);
-title('Sigdebruit');
-
-res = 3;
+Sigdebruit = ifft(SigdebruitFT)'; 
+rest = 4;
