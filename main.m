@@ -18,7 +18,8 @@ Signal_recouv=AddRecouv(fen,w,prct);
 
 figure,
 plot(s1)
-hold on,
+
+figure,
 plot(Signal_recouv),
 title("Tu recouvres ?")
 
