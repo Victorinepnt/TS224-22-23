@@ -14,9 +14,11 @@ dec=decomp(s1,N,prct);
 
 [fen,w]=fenetre(dec,"hamming");
 
-t=test();
-
-
+figure,
+plot(s1);
+xlabel("Axe temporel");
+ylabel("Axe de l'amplitude");
+title("Signal d'origine")
 
 %[bbg]=BruitBlancGaussien(length(s1),1,5,1e-6);
 
