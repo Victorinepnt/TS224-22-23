@@ -59,12 +59,12 @@ end
 
 
 Signal_final=AddRecouv(real(res),w,prct);
-Signal_final=[zeros(1,floor(length(dec2(:,1))*(prct/100))) Signal_final];
+Signal_finalf=[zeros(1,length(s1)-length(Signal_final)) Signal_final];
 figure,
 plot(sigbruite,'r');
 
 hold on,
-plot(Signal_final,'b'),
+plot(Signal_finalf,'b'),
 
 hold on,
 plot(s1,'g');
@@ -83,12 +83,12 @@ end
 
 
 Signal_final2=AddRecouv(real(res2),w,prct);
-Signal_final2=[zeros(1,floor(length(dec3(:,1))*(prct/100))) Signal_final2];
+Signal_finalf2=[zeros(1,floor(length(dec3(:,1))*(prct/100))) Signal_final2];
 figure,
 plot(sigbruite2,'r');
 
 hold on,
-plot(Signal_final2,'b'),
+plot(Signal_finalf2,'b'),
 
 hold on,
 plot(s1,'g');
@@ -106,12 +106,12 @@ end
 
 
 Signal_final3=AddRecouv(real(res3),w,prct);
-Signal_final3=[zeros(1,floor(length(dec2(:,1))*(prct/100))) Signal_final3];
+Signal_finalf3=[zeros(1,floor(length(dec2(:,1))*(prct/100))) Signal_final3];
 figure,
 plot(sigbruite3,'r');
 
 hold on,
-plot(Signal_final3,'b'),
+plot(Signal_finalf3,'b'),
 
 hold on,
 plot(s1,'g');
@@ -126,9 +126,9 @@ SNRfuncRSB(3,1) = 15;
 
 vars1 = var(s1);
 
-v1 = var(Signal_final-s1);
-v2 = var(Signal_final2-s1);
-v3 = var(Signal_final3-s1);
+v1 = var(Signal_finalf-s1);
+v2 = var(Signal_finalf2-s1);
+v3 = var(Signal_finalf3-s1);
 
 SNRfuncRSB(1,2) = 10*log10(v1/vars1);
 SNRfuncRSB(2,2) = 10*log10(v2/vars1);
