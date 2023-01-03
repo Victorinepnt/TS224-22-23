@@ -1,4 +1,4 @@
-function [sigbruit] = parolebruitee(siginit, RSB)
+function [sigbruit, bruit] = parolebruitee(siginit, RSB)
 
 n = length(siginit);
 varsig = var(siginit);

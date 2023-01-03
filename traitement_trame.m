@@ -7,7 +7,7 @@ sigma2 = var(extrait);
 SigBruitFT = fft(Trame);
 n = length(SigBruitFT);
 
-dspestim = ones(n,1)*sigma2;  %problème de taille pour la soustraction !!
+dspestim = ones(n,1)*sigma2;
 
 Sigrehausse = ((abs(SigBruitFT)).^2)/n - dspestim;
 
