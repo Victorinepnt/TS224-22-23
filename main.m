@@ -122,6 +122,12 @@ SNRfuncRSB(1,1) = 5;
 SNRfuncRSB(2,1) = 10;
 SNRfuncRSB(3,1) = 15;
 
-SNRfuncRSB(1,2) = 10*log10(var(Signal_final)/var(bruit1));
-SNRfuncRSB(2,2) = 10*log10(var(Signal_final2)/var(bruit2));
-SNRfuncRSB(3,2) = 10*log10(var(Signal_final3)/var(bruit3));
+vars1 = var(s1);
+
+v1 = var(Signal_final-s1);
+v2 = var(Signal_final2-s1);
+v3 = var(Signal_final3-s1);
+
+SNRfuncRSB(1,2) = 10*log10(v1/vars1);
+SNRfuncRSB(2,2) = 10*log10(v2/vars1);
+SNRfuncRSB(3,2) = 10*log10(v3/vars1);
