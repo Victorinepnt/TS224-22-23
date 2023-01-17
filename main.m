@@ -126,9 +126,9 @@ SNRfuncRSB(3,1) = 15;
 
 vars1 = var(s1);
 
-v1 = var(Signal_finalf-s1);
-v2 = var(Signal_finalf2-s1);
-v3 = var(Signal_finalf3-s1);
+v1 = var(Signal_finalf'-s1);
+v2 = var(Signal_finalf2'-s1);
+v3 = var(Signal_finalf3'-s1);
 
 SNRfuncRSB(1,2) = 10*log10(v1/vars1);
 SNRfuncRSB(2,2) = 10*log10(v2/vars1);
