@@ -42,10 +42,14 @@ title("Corrélatioon non-biaisé");
 subplot(3,1,3);
 plot(l,bia);
 title("Corrélatioon biaisé");
+xlabel("Fréquence"),
+ylabel("Amplitude")
 
 figure,
 plot(bbg_fft);
 title("Spectre de puissance");
+xlabel("Fréquence");
+ylabel("Puissance");
 
 
 figure,
@@ -54,3 +58,5 @@ hold on;
 plot(bbg_dsp);
 title("Periodogramme et densite spectrale de puissance")
 legend("DSP calculé", "DSP théorique")
+xlabel("Fréquence");
+ylabel("Densité spectrale");
