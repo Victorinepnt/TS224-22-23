@@ -23,4 +23,3 @@ SigdebruitFT = Sigrehausseft.*exp(1j*angle(SigBruitFT));
 
 
 Sigdebruit = ifft(SigdebruitFT)'; 
-rest = 4;
